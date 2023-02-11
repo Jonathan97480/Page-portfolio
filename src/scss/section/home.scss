@@ -1,0 +1,120 @@
+.about{
+    margin: 4.3rem 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+
+
+    &__block{
+        display: flex;
+        justify-content: flex-end;
+       
+        align-items: center;
+        flex-direction: column-reverse;
+        height: 100%;
+        
+
+        &__pic{
+            border-radius: 50%;
+            margin-top: 4rem;
+            
+        }
+        &__info{
+            height: 18rem;
+            padding: 1rem;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            gap: 4.5rem;
+
+            @include media(medium){
+                height: 20rem;
+            }
+
+            &__titleBlock{
+          
+                &__title{
+                    font-family: Roboto_slab;
+                    font-size: 4.5rem;
+                    font-weight: 700;
+                    color: var(--color-tertiary);
+                    text-align: center;
+                 
+                }
+
+                
+            }
+
+            &__desc{
+              max-width: 46rem;
+                    &__title-medium{
+                        font-weight: 600;
+                        font-family: Roboto_slab;
+                        font-size: 2.5rem;
+                        margin-bottom: 1rem;
+                    }
+                &__text{
+                 font-family: Roboto;
+                font-size: 1.8rem;
+                font-weight: 400;
+                color: var(--color-secondary);
+                text-align: left;
+                line-height: 3rem;
+                }
+              
+                &__reseaux{
+                    display: flex;
+                    gap: 1rem;
+                    align-items: center;
+                    margin: 1rem 0;
+                    .btn{
+                        background: none;
+                        border: none;
+                        cursor: pointer;
+                        background-color: var(--color-tertiary);
+                        padding: 1rem;
+                        border-radius: 5px;
+                        color: var(--color-primary);
+                        font-family: Roboto_slab;
+                        font-size: 1.5rem;
+                        font-weight: 700;
+                        transition: all 0.3s ease-in-out;
+                        text-decoration: none;
+                        &:hover{
+                            transform: scale(1.1);
+                        }
+                    }
+                     
+                        img{
+                            filter: var(--svg-filter);
+                            text-decoration: none;
+                            margin-left: 1rem;
+
+                            &:hover{
+                                filter: var(--svg-filter-active);
+                            }
+                            
+                        }
+                
+                }
+            }
+        }
+
+        @include media(medium){
+            flex-direction : row;
+            justify-content: center;
+            align-items: center;
+            
+            gap: 4rem;
+    
+        }
+    }
+
+    @include media(medium){
+        height: 70vh;
+    }
+}

@@ -1,0 +1,96 @@
+header{
+    position: sticky;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    height:6.5rem;
+    background-color: var(--color-primary);
+    transition: all 0.5s ease-in-out;
+     .hamburger{
+            float: right;
+            @include media(medium){
+                display: none;
+            }
+    }
+
+   
+
+    .header{
+     
+        padding-top: 1.7rem;
+        height: 28rem;
+        width: 100%;
+     
+        position: absolute;
+        bottom: 0;
+        display: none;
+        justify-content: flex-start;
+        align-items: center;
+        flex-direction: column;
+        gap: 2.1rem;
+   
+        nav{
+            ul{
+                display:flex;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
+                gap: 1.5rem;
+                a{
+                    text-decoration: none;
+                    color: var(--color-secondary);
+                    font-family: Roboto_slab;
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                   
+                }
+            }
+          
+        }
+        &__reseaux{
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            gap: 1.5rem;
+          
+            img{
+                  filter: var(--svg-filter);
+                &:hover{
+                    filter: var(--svg-filter-active);
+                }
+            }
+        
+
+        }
+
+        &__open{
+            display:flex;
+
+        }
+
+        @include media(medium){
+            display: flex;
+            flex-direction: row;
+            height: auto;
+            justify-content: space-between;
+            padding-left: 1rem;
+            padding-right: 1rem;
+              
+
+            nav{
+                ul{
+                    flex-direction: row;
+                }
+            }
+
+        }
+
+      
+    }
+}
+ .headerActive{
+        height: 34rem;
+        transition: all 0.5s ease-in-out;
+
+    }
