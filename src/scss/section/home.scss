@@ -1,20 +1,20 @@
 .about{
     margin: 4.3rem 0;
-    height: 100vh;
+    height:auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
 
 
     &__block{
         display: flex;
         justify-content: flex-end;
-       
+        height: auto;
         align-items: center;
         flex-direction: column-reverse;
-        height: 100%;
+       
         
 
         &__pic{
@@ -30,10 +30,7 @@
             align-items: center;
             flex-direction: column;
             gap: 4.5rem;
-
-            @include media(medium){
-                height: 20rem;
-            }
+            height: auto;
 
             &__titleBlock{
           
