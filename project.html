@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation du projet</title>
+    <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/animations.css">
+        <link rel="stylesheet" href="css/modern.css">
+        <script>
+        // Loader animé
+        document.write('<div id="loader"><div class="loader-circle"></div></div>');
+        window.addEventListener('DOMContentLoaded',()=>{
+            setTimeout(()=>{
+                document.getElementById('loader').classList.add('hide');
+            }, 600);
+        });
+        // Dark mode toggle
+        function toggleDarkMode(){
+            document.body.classList.toggle('dark');
+            localStorage.setItem('darkMode',document.body.classList.contains('dark'));
+        }
+        if(localStorage.getItem('darkMode')==='true')document.body.classList.add('dark');
+        </script>
+</head>
+<body id="Body">
+        <!-- Header injecté dynamiquement -->
+        <div id="header-inject"></div>
+        <main id="project-detail" class="project" style="min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:4rem;padding-bottom:4rem;">
+                <!-- Le contenu du projet sera injecté dynamiquement -->
+        </main>
+        <!-- Footer injecté dynamiquement -->
+        <div id="footer-inject"></div>
+        <script src="js/project-detail.js"></script>
+        <script>
+        // Injection du header et du footer depuis index.html
+        fetch('index.html')
+            .then(r => r.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const header = doc.querySelector('header');
+                const footer = doc.querySelector('footer');
+                if(header) document.getElementById('header-inject').appendChild(header.cloneNode(true));
+                if(footer) document.getElementById('footer-inject').appendChild(footer.cloneNode(true));
+            });
+        </script>
+</body>
+</html>

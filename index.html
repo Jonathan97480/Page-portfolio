@@ -16,6 +16,8 @@
 	<meta property="og:site_name" content="Portfolio Gauvin Jonathan(jon-dev)">
 	<meta property="og:image" content="/image/icons/logo_jon_dev.ico">
 	<link rel="stylesheet" href="css/style.css" onload="if(media!='all')media='all'">
+	<link rel="stylesheet" href="css/animations.css">
+	<link rel="stylesheet" href="css/modern.css">
 	<link rel="icon" href="image/icons/logo_jon_dev.ico">
 	<script src="js/script.js"></script>
 	<title>Portfolio Gauvin Jonathan(jon-dev)</title>
@@ -46,6 +48,9 @@
 				<a href="https://twitter.com/jonathanfrt9741" target="_blank">
 					<img src="image/icons/tweeter.svg" alt="Redirige ver Tweeter" width="25" height="25">
 				</a>
+				<button id="darkmode-toggle" title="Activer/désactiver le mode sombre" style="background:none;border:none;cursor:pointer;font-size:2.2rem;display:flex;align-items:center;justify-content:center;padding:0 0.5rem;">
+					<span id="darkmode-icon" aria-label="Mode nuit/jour" style="font-size:2.2rem;">🌙</span>
+				</button>
 			</div>
 
 		</div>
@@ -66,19 +71,14 @@
 					<div class="about__block__info__desc">
 						<h3 class="about__block__info__desc__title-medium">Développeur web & mobile</h3>
 
-						<p class="about__block__info__desc__text"> Je suis un
-							développeur avec plus de 11 années d'expérience, au cours des 5 dernières
-							années, j'ai concentré mes efforts
-							sur le développement web et mobile. <br> J'ai fondé ma propre entreprise, Jon-dev, il y a
-							plus de
-							2 ans maintenant, et j'ai
-							consacré mes efforts à la création d'application mobile et de sites Web pour les petites et
-							moyennes entreprises. <br>
-							Je suis basé à La Réunion et
-							je suis prêt à mettre mon expertise à votre disposition pour vous aider à atteindre vos
-							objectifs.</p>
+						<p class="about__block__info__desc__text">
+							Développeur web & mobile passionné, j’accompagne depuis plus de 14 ans les entreprises dans leur transformation numérique. Fondateur de Jon-dev, j’ai bâti mon expertise autour de la création de sites web modernes et d’applications mobiles sur-mesure pour les PME et entrepreneurs.
+							<br><br>
+							Basé à La Réunion, je place l’innovation au cœur de mon métier : depuis l’arrivée de l’intelligence artificielle dans l’univers du développement, j’ai su intégrer l’IA dans mon flux de travail pour accélérer la production, améliorer la qualité et proposer des solutions toujours plus performantes à mes clients.
+							<br><br>
+							Prêt à relever de nouveaux défis ? Discutons de votre projet et donnons-lui vie ensemble.
+						</p>
 						<div class="about__block__info__desc__reseaux">
-							<a class="btn" href="#project">Le Portfolio</a>
 							<span class="about__block__info__desc____reseaux__iconBlock">
 								<a href="https://www.linkedin.com/in/gauvin-jonathan/"
 									title="lien ver la page LinkedIn de Gauvin Jonathan" target="_blank"><img
@@ -112,26 +112,13 @@
 		</section>
 		<section id="contact" class="contact">
 
-			<div class="contact__block">
-				<img class="contact__block__pic" src="image/cover/contact.jpg" width="514" height="565" alt="">
-				<div class="contact__block__form">
-					<h2 class="contact__block__form__title">Contacter nous</h2>
-					<p class="contact__status" id="my-form-status"></p>
-					<form action="https://formspree.io/f/mlekglna" id="my-form" method="POST">
-						<div>
-							<label for="name">Nom & prénom</label>
-							<input type="text" name="name" id="name" placeholder="Votre nom">
+			<div class="contact__block__form" style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;min-height:320px;font-family:Roboto,Roboto_slab,sans-serif;">
+				<h2 class="contact__block__form__title" style="font-family:Roboto_slab,Roboto,sans-serif;">Contact</h2>
+				<p style="font-size:1.7rem;text-align:center;max-width:340px;line-height:2.5rem;font-family:Roboto,Roboto_slab,sans-serif;">Pour toute information ou demande, contactez-moi directement par mail.<br><br>
+				<strong style="font-family:Roboto_slab,Roboto,sans-serif;">jonathanfrt97480@gmail.com</strong></p>
+				<a href="mailto:jonathanfrt97480@gmail.com" class="btn" style="font-size:1.7rem;padding:1.2rem 2.5rem;font-family:Roboto_slab,Roboto,sans-serif;">Écrire un email</a>
+			</div>
 
-						</div>
-						<div>
-							<label for="email">Email</label>
-							<input type="email" name="email" id="email" placeholder="Votre email">
-						</div>
-						<div>
-							<label for="message">Message</label>
-							<textarea name="message" id="message" cols="30" rows="10"></textarea>
-						</div>
-						<input type="submit" value="Envoyé votre message">
 					</form>
 				</div>
 			</div>
@@ -152,8 +139,8 @@
 			<span>
 				<h2>Nous contacter</h2>
 				<a href="tel:+262 0692 41 75 74">+262 0692 41 75 74</a>
-				<a href="mailto:jon.dev974@gmail.com">
-					jon.dev974@gmail.com
+				<a href="mailto:jonathanfrt97480@gmail.com">
+					jonathanfrt97480@gmail.com
 				</a>
 			</span>
 			<span class="footer__links__reseaux">
@@ -179,6 +166,30 @@
 			</p>
 		</div>
 	</footer>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	const btn=document.getElementById('darkmode-toggle');
+	const icon=document.getElementById('darkmode-icon');
+	function updateIcon(){
+		if(document.body.classList.contains('dark')){
+			icon.textContent='☀️';
+		}else{
+			icon.textContent='🌙';
+		}
+	}
+	if(btn&&icon){
+		btn.onclick=()=>{
+			document.body.classList.toggle('dark');
+			localStorage.setItem('darkMode',document.body.classList.contains('dark'));
+			updateIcon();
+		};
+		if(localStorage.getItem('darkMode')==='true'){
+			document.body.classList.add('dark');
+		}
+		updateIcon();
+	}
+});
+</script>
 </body>
 
 </html>
